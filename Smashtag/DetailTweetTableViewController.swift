@@ -13,27 +13,29 @@ class DetailTweetTableViewController: UITableViewController {
     
     var tweet: Tweet? {
         didSet {
-            specialMentions.removeAll()
+            linksList.removeAll()
+            if let mediaList = tweet?.media {
+                linksList.append(mediaList)
+            }
             if let hashtags = tweet?.hashtags {
-                specialMentions.append(hashtags)
+                linksList.append(hashtags)
             }
             if let userMentions = tweet?.userMentions {
-                specialMentions.append(userMentions)
+                linksList.append(userMentions)
             }
             if let urls = tweet?.urls {
-                specialMentions.append(urls)
+                linksList.append(urls)
             }
             print("tweetSet")
             print(tweet?.user ?? nil)
         }
     }
     
-    var links = [AnyObject]()
+    var linksList = [Any]()
     
+    typealias MediaList = [MediaItem]
     typealias MentionList = [Tweet.IndexedKeyword]
     
-    
-    var specialMentions = [MentionList]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,32 +51,48 @@ class DetailTweetTableViewController: UITableViewController {
     
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        let numSections = specialMentions.count
+        let numSections = linksList.count
         print("number of sections is \(numSections)")
         return numSections
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numRows = specialMentions[section].count
-        print("number of sections is \(numRows)")
-        return numRows
+        if let mediaList = linksList[section] as? [MediaItem] {
+            print("printingMediaItems")
+            return mediaList.count
+        } else if let specialMentionList = linksList[section] as? MentionList {
+            print("number of rows in section \(section) is \(specialMentionList.count)")
+            let numRows = specialMentionList.count
+            return numRows
+        } else {
+            print("returned zero rows")
+            return 0
+        }
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         print("it finally was fucking called")
         let cell = tableView.dequeueReusableCellWithIdentifier("specialMention", forIndexPath: indexPath)
-        let specialMention = specialMentions[indexPath.section][indexPath.row]
-        cell.textLabel?.text = specialMention.keyword
-        print(specialMention.keyword)
+        if let mediaList = linksList[indexPath.section] as? MediaList {
+            return cell
+        }
+        if let specialMention = linksList[indexPath.section] as? MentionList {
+            let specialMention = specialMention[indexPath.row]
+            cell.textLabel?.text = specialMention.keyword
+            print(specialMention.keyword)
+            return cell
+        }
         return cell
+        
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch (section) {
-        case 0: return "Hashtags"
-        case 1: return "User Mentions"
-        case 2: return "Linked URLs"
+        case 0: return "Linked Media"
+        case 1: return "Hashtags"
+        case 2: return "User Mentions"
+        case 3: return "Linked URLs"
         default: return "Not sure what these are"
         }
     }

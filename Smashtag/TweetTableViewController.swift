@@ -129,7 +129,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate, UISp
     
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
         if primaryViewController.contentViewController == self {
-            if let detailTweetVC = secondaryViewController.contentViewController as? DetailTweetTableViewController where detailTweetVC.specialMentions.count == 0 {
+            if let detailTweetVC = secondaryViewController.contentViewController as? DetailTweetTableViewController where detailTweetVC.linksList.count == 0 {
                 return true
             }
         }
