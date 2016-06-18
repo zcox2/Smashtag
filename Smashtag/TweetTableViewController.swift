@@ -9,7 +9,7 @@
 import UIKit
 import Twitter
 
-class TweetTableViewController: UITableViewController, UITextFieldDelegate {
+class TweetTableViewController: UITableViewController, UITextFieldDelegate, UISplitViewControllerDelegate{
 
     
     var tweet: Tweet? = nil
@@ -24,6 +24,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         searchText = "#roosterteeth"
+        splitViewController?.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -126,6 +127,15 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
+        if primaryViewController.contentViewController == self {
+            if let detailTweetVC = secondaryViewController.contentViewController as? DetailTweetTableViewController where detailTweetVC.specialMentions.count == 0 {
+                return true
+            }
+        }
+        return false
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
@@ -150,3 +160,14 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     
 
 }
+
+extension UIViewController {
+    var contentViewController: UIViewController {
+        if let navcon = self as? UINavigationController {
+            return navcon.visibleViewController ?? self
+        } else {
+            return self
+        }
+    }
+}
+

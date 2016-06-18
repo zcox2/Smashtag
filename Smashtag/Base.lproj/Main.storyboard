@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A278b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cV9-qr-iHe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15A278b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="16j-xo-h7w">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -105,7 +105,7 @@
                     </refreshControl>
                     <connections>
                         <outlet property="searchTextField" destination="Enh-45-Y8s" id="c8N-bu-Mhm"/>
-                        <segue destination="9rO-f3-S58" kind="presentation" identifier="showTweetDetail" modalPresentationStyle="currentContext" id="UtR-rV-V8O"/>
+                        <segue destination="9rO-f3-S58" kind="showDetail" identifier="showTweetDetail" id="UtR-rV-V8O"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P2V-1Z-7ht" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -148,12 +148,26 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0c7-sH-fYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2104" y="1115"/>
+            <point key="canvasLocation" x="1230" y="1053"/>
         </scene>
-        <!--tweetsViewController-->
+        <!--Split View Controller-->
+        <scene sceneID="AbS-xu-olE">
+            <objects>
+                <splitViewController id="16j-xo-h7w" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="9rO-f3-S58" kind="relationship" relationship="detailViewController" id="bwd-2l-bBQ"/>
+                        <segue destination="cV9-qr-iHe" kind="relationship" relationship="masterViewController" id="gi8-hF-TWU"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RzN-Mw-FKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-290" y="463"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="MmL-3E-hMq">
             <objects>
-                <navigationController title="tweetsViewController" automaticallyAdjustsScrollViewInsets="NO" id="cV9-qr-iHe" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xSV-Je-Lba" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cV9-qr-iHe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ycy-6s-Cg1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -164,14 +178,13 @@
                         <segue destination="3WF-ZQ-siH" kind="relationship" relationship="rootViewController" id="UG0-oL-PBd"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xSV-Je-Lba" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="480" y="304"/>
         </scene>
-        <!--detailViewController-->
+        <!--Navigation Controller-->
         <scene sceneID="Hgm-ly-qtt">
             <objects>
-                <navigationController title="detailViewController" automaticallyAdjustsScrollViewInsets="NO" id="9rO-f3-S58" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9rO-f3-S58" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TD2-bs-XgM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -184,7 +197,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ybr-XW-8PB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1292" y="1115"/>
+            <point key="canvasLocation" x="513" y="1037"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="bwd-2l-bBQ"/>
+    </inferredMetricsTieBreakers>
 </document>

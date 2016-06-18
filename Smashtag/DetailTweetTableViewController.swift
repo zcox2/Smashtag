@@ -17,10 +17,10 @@ class DetailTweetTableViewController: UITableViewController {
             if let hashtags = tweet?.hashtags where hashtags.count != 0 {
                 specialMentions.append(hashtags)
             }
-            if let userMentions = tweet?.userMentions where userMentions.count != 0 {
+            if let userMentions = tweet?.userMentions {
                 specialMentions.append(userMentions)
             }
-            if let urls = tweet?.urls where urls.count != 0 {
+            if let urls = tweet?.urls {
                 specialMentions.append(urls)
             }
             print("tweetSet")
