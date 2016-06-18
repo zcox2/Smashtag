@@ -14,18 +14,10 @@ class DetailTweetTableViewController: UITableViewController {
     
     var tweet: Tweet? {
         didSet {
-            if let mediaList = tweet?.media {
-                linksList.mediaList = mediaList
-            }
-            if let hashtags = tweet?.hashtags {
-                linksList.hashtags = hashtags
-            }
-            if let userMentions = tweet?.userMentions {
-                linksList.userMentions = userMentions
-            }
-            if let urls = tweet?.urls {
-                linksList.urls = urls
-            }
+            linksList.mediaList = tweet?.media ?? []
+            linksList.hashtags = tweet?.hashtags ?? []
+            linksList.userMentions = tweet?.userMentions ?? []
+            linksList.urls = tweet?.urls ?? []
             print("tweetSet")
             print(tweet?.user ?? nil)
         }
@@ -57,14 +49,11 @@ class DetailTweetTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        let numSections = 4
-        print("number of sections is \(numSections)")
-        return numSections
+        return 4
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        print("Checking number of rows in section \(section)")
         switch (section) {
         case 0: return linksList.mediaList.count
         case 1: return linksList.hashtags.count
