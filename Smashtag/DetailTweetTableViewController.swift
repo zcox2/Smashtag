@@ -73,18 +73,29 @@ class DetailTweetTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         print("it finally was fucking called")
-        let cell = tableView.dequeueReusableCellWithIdentifier("specialMention", forIndexPath: indexPath)
-        if let mediaList = linksList[indexPath.section] as? MediaList {
-            return cell
-        }
         if let specialMention = linksList[indexPath.section] as? MentionList {
+            let cell = tableView.dequeueReusableCellWithIdentifier("specialMention", forIndexPath: indexPath)
             let specialMention = specialMention[indexPath.row]
             cell.textLabel?.text = specialMention.keyword
             print(specialMention.keyword)
             return cell
         }
-        return cell
+        if let mediaList = linksList[indexPath.section] as? MediaList {
+            let cell = tableView.dequeueReusableCellWithIdentifier("linkedImage", forIndexPath: indexPath)
+            if let linkedImageCell = cell as? LinkedImageTableViewCell {
+                let mediaItem = mediaList[indexPath.row]
+                if let linkedImageURL = mediaItem.url {
+                    if let imageData = NSData(contentsOfURL: linkedImageURL) { // blocks main thread!
+                        linkedImageCell.linkedImageView.image = UIImage(data: imageData)
+                        linkedImageCell.sizeToFit()
+                    }
+                }
+                return linkedImageCell
+            }
+            return cell
+        }
         
+        return tableView.dequeueReusableCellWithIdentifier("specialMention", forIndexPath: indexPath)
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

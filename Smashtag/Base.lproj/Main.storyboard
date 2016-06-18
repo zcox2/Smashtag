@@ -121,16 +121,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="linkedImage" id="axO-CM-fw1" customClass="LinkedImageTableViewCell" customModule="Smashtag" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="600" height="65"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="linkedImage" rowHeight="268" id="axO-CM-fw1" customClass="LinkedImageTableViewCell" customModule="Smashtag" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="114" width="600" height="268"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="axO-CM-fw1" id="Nla-w0-ibn">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="axO-CM-fw1" id="Nla-w0-ibn">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="267"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TEH-fY-hdH">
+                                            <rect key="frame" x="175" y="9" width="250" height="250"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="TEH-fY-hdH" secondAttribute="bottom" id="R6T-b0-Fpy"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="TEH-fY-hdH" secondAttribute="trailing" constant="167" id="Y3W-k6-Nkm"/>
+                                        <constraint firstItem="TEH-fY-hdH" firstAttribute="leading" secondItem="Nla-w0-ibn" secondAttribute="leadingMargin" constant="167" id="eAf-C4-afr"/>
+                                        <constraint firstItem="TEH-fY-hdH" firstAttribute="top" secondItem="Nla-w0-ibn" secondAttribute="topMargin" constant="1" id="qt1-tJ-mci"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="contentView" destination="Nla-w0-ibn" id="Ooa-PK-P7I"/>
+                                    <outlet property="imageView" destination="TEH-fY-hdH" id="PbY-sI-Ftr"/>
+                                    <outlet property="linkedImageView" destination="TEH-fY-hdH" id="9Lp-B7-5lC"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="specialMention" textLabel="Qhd-uH-Bhr" rowHeight="80" style="IBUITableViewCellStyleDefault" id="KJ8-Vi-beW">
-                                <rect key="frame" x="0.0" y="179" width="600" height="80"/>
+                                <rect key="frame" x="0.0" y="382" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="KJ8-Vi-beW" id="owA-dn-6i4">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
@@ -209,6 +225,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bwd-2l-bBQ"/>
+        <segue reference="UtR-rV-V8O"/>
     </inferredMetricsTieBreakers>
 </document>

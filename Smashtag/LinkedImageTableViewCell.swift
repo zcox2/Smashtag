@@ -10,6 +10,9 @@ import UIKit
 
 class LinkedImageTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var linkedImageView: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
