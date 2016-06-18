@@ -9,7 +9,7 @@
 import UIKit
 import Twitter
 
-class TweetTableViewController: UITableViewController, UITextFieldDelegate{
+class TweetTableViewController: UITableViewController, UITextFieldDelegate {
 
     
     var tweet: Tweet? = nil
@@ -23,7 +23,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate{
         
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-
+        searchText = "#roosterteeth"
     }
     
     func refresh(sender: UIRefreshControl) {
@@ -132,19 +132,14 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate{
         }
         
         
-        if segue.identifier == "showTweetDetail" {
-            weak var weakSelf = self
-            
-            if let selectedTweet = sender as? Tweet {
-                if let detailTweetVC = destinationVC as? DetailTweetTableViewController {
+            //weak var weakSelf = self
+        if let detailTweetVC = destinationVC as? DetailTweetTableViewController {
+            if segue.identifier == "showTweetDetail" {
+                if let selectedTweet = sender as? Tweet {
                     detailTweetVC.tweet = selectedTweet
                     detailTweetVC.navigationItem.title = selectedTweet.user.screenName
                     
                 }
-            }
-            
-            if let detailTweetVC = destinationVC as? DetailTweetTableViewController {
-                detailTweetVC.tweet = weakSelf?.tweet
             }
         }
     }

@@ -23,7 +23,8 @@ class DetailTweetTableViewController: UITableViewController {
             if let urls = tweet?.urls where urls.count != 0 {
                 specialMentions.append(urls)
             }
-            tableView?.reloadData()
+            print("tweetSet")
+            print(tweet?.user ?? nil)
         }
     }
 
@@ -32,6 +33,7 @@ class DetailTweetTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,25 +45,34 @@ class DetailTweetTableViewController: UITableViewController {
     
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
-        
-        
         let numSections = specialMentions.count
+        print("number of sections is \(numSections)")
         return numSections
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            let numRows = specialMentions[section].count
-            return numRows
+        let numRows = specialMentions[section].count
+        print("number of sections is \(numRows)")
+        return numRows
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        print("it finally was fucking called")
         let cell = tableView.dequeueReusableCellWithIdentifier("specialMention", forIndexPath: indexPath)
         let specialMention = specialMentions[indexPath.section][indexPath.row]
         cell.textLabel?.text = specialMention.keyword
-        
+        print(specialMention.keyword)
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch (section) {
+        case 0: return "Hashtags"
+        case 1: return "User Mentions"
+        case 2: return "Linked URLs"
+        default: return "Not sure what these are"
+        }
     }
     
 
