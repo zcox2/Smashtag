@@ -18,7 +18,6 @@ class DetailTweetTableViewController: UITableViewController {
             linksList.hashtags = tweet?.hashtags ?? []
             linksList.userMentions = tweet?.userMentions ?? []
             linksList.urls = tweet?.urls ?? []
-            print("tweetSet")
             print(tweet?.user ?? nil)
         }
     }
@@ -131,8 +130,19 @@ class DetailTweetTableViewController: UITableViewController {
         return nil
     }
     
-    
-    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        switch (indexPath.section) {
+        case 0: break
+        case 1: break
+        case 2: break
+        case 3:
+            if let url = NSURL(string:linksList.urls[indexPath.row].keyword) {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        default:break
+        }
+    }
     
     /*
      // Override to support conditional editing of the table view.
