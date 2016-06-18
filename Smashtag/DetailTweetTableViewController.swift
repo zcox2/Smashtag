@@ -58,7 +58,7 @@ class DetailTweetTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let mediaList = linksList[section] as? [MediaItem] {
-            print("printingMediaItems")
+            print("\(mediaList.count) MediaItems, also we're section \(section)")
             return mediaList.count
         } else if let specialMentionList = linksList[section] as? MentionList {
             print("number of rows in section \(section) is \(specialMentionList.count)")
@@ -72,40 +72,67 @@ class DetailTweetTableViewController: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print("it finally was fucking called")
+        
         if let specialMention = linksList[indexPath.section] as? MentionList {
             let cell = tableView.dequeueReusableCellWithIdentifier("specialMention", forIndexPath: indexPath)
             let specialMention = specialMention[indexPath.row]
             cell.textLabel?.text = specialMention.keyword
-            print(specialMention.keyword)
+            
+            print("it fucking called \(specialMention.keyword)")
             return cell
         }
         if let mediaList = linksList[indexPath.section] as? MediaList {
-            let cell = tableView.dequeueReusableCellWithIdentifier("linkedImage", forIndexPath: indexPath)
-            if let linkedImageCell = cell as? LinkedImageTableViewCell {
-                let mediaItem = mediaList[indexPath.row]
+            let cell = tableView.dequeueReusableCellWithIdentifier("imageCell", forIndexPath: indexPath)
+            let mediaItem = mediaList[indexPath.row]
+            
+            if let imageCell = cell as? LinkedImageTableViewCell {
                 if let linkedImageURL = mediaItem.url {
-                    if let imageData = NSData(contentsOfURL: linkedImageURL) { // blocks main thread!
-                        linkedImageCell.linkedImageView.image = UIImage(data: imageData)
-                        linkedImageCell.sizeToFit()
+                    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+                        if let imageData = NSData(contentsOfURL: linkedImageURL) { // blocks main thread!
+                            dispatch_async(dispatch_get_main_queue()) {
+                                imageCell.linkedImageView?.image = UIImage(data: imageData)
+                                
+                            }
+                        }
                     }
                 }
-                return linkedImageCell
+                return imageCell
             }
+            
             return cell
         }
         
         return tableView.dequeueReusableCellWithIdentifier("specialMention", forIndexPath: indexPath)
     }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch (section) {
-        case 0: return "Linked Media"
-        case 1: return "Hashtags"
-        case 2: return "User Mentions"
-        case 3: return "Linked URLs"
-        default: return "Not sure what these are"
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if let mediaList = linksList[indexPath.section] as? MediaList {
+            
+            let mediaItem = mediaList[indexPath.row]
+            let width = 350.0
+            return CGFloat(width / mediaItem.aspectRatio)
+            
         }
+        return tableView.rowHeight
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let mediaList = linksList[section] as? MediaList {
+            if mediaList.count > 0 {
+                return "Linked Media"
+            }
+        }
+        if let mentionList = linksList[section] as? MentionList {
+            if mentionList.count > 0 {
+                switch (section) {
+                case 1: return "Hashtags"
+                case 2: return "User Mentions"
+                case 3: return "Linked URLs"
+                default: return "Not sure what these are"
+                }
+            }
+        }
+        return nil
     }
     
 

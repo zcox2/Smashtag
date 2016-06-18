@@ -116,44 +116,20 @@
         <scene sceneID="bsa-Q6-ajI">
             <objects>
                 <tableViewController title="DetailTweetViewer" id="eD4-6F-L6t" customClass="DetailTweetTableViewController" customModule="Smashtag" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="65" sectionHeaderHeight="18" sectionFooterHeight="18" id="2nM-04-MyZ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="65" sectionHeaderHeight="1" sectionFooterHeight="1" id="2nM-04-MyZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="linkedImage" rowHeight="268" id="axO-CM-fw1" customClass="LinkedImageTableViewCell" customModule="Smashtag" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="600" height="268"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="axO-CM-fw1" id="Nla-w0-ibn">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="267"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TEH-fY-hdH">
-                                            <rect key="frame" x="175" y="9" width="250" height="250"/>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="TEH-fY-hdH" secondAttribute="bottom" id="R6T-b0-Fpy"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="TEH-fY-hdH" secondAttribute="trailing" constant="167" id="Y3W-k6-Nkm"/>
-                                        <constraint firstItem="TEH-fY-hdH" firstAttribute="leading" secondItem="Nla-w0-ibn" secondAttribute="leadingMargin" constant="167" id="eAf-C4-afr"/>
-                                        <constraint firstItem="TEH-fY-hdH" firstAttribute="top" secondItem="Nla-w0-ibn" secondAttribute="topMargin" constant="1" id="qt1-tJ-mci"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="contentView" destination="Nla-w0-ibn" id="Ooa-PK-P7I"/>
-                                    <outlet property="imageView" destination="TEH-fY-hdH" id="PbY-sI-Ftr"/>
-                                    <outlet property="linkedImageView" destination="TEH-fY-hdH" id="9Lp-B7-5lC"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="specialMention" textLabel="Qhd-uH-Bhr" rowHeight="80" style="IBUITableViewCellStyleDefault" id="KJ8-Vi-beW">
-                                <rect key="frame" x="0.0" y="382" width="600" height="80"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="specialMention" textLabel="Qhd-uH-Bhr" style="IBUITableViewCellStyleDefault" id="KJ8-Vi-beW">
+                                <rect key="frame" x="0.0" y="114" width="600" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="KJ8-Vi-beW" id="owA-dn-6i4">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qhd-uH-Bhr">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="79"/>
+                                            <rect key="frame" x="15" y="0.0" width="570" height="64"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -161,6 +137,30 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="180" id="D8Q-Ak-mTs" customClass="LinkedImageTableViewCell" customModule="Smashtag" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="179" width="600" height="180"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D8Q-Ak-mTs" id="Z5g-zm-SPu">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="179"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Hx-Ho-wIJ">
+                                            <rect key="frame" x="125" y="0.0" width="350" height="179"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="350" id="Skj-nf-rV9"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="9Hx-Ho-wIJ" firstAttribute="centerX" secondItem="Z5g-zm-SPu" secondAttribute="centerX" id="88K-RY-syl"/>
+                                        <constraint firstItem="9Hx-Ho-wIJ" firstAttribute="top" secondItem="Z5g-zm-SPu" secondAttribute="top" id="NLF-RD-5IW"/>
+                                        <constraint firstAttribute="bottom" secondItem="9Hx-Ho-wIJ" secondAttribute="bottom" id="pRq-b1-V5H"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="linkedImageView" destination="9Hx-Ho-wIJ" id="UmE-y8-ukK"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

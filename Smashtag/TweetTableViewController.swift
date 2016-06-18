@@ -9,7 +9,7 @@
 import UIKit
 import Twitter
 
-class TweetTableViewController: UITableViewController, UITextFieldDelegate, UISplitViewControllerDelegate{
+class TweetTableViewController: UITableViewController, UITextFieldDelegate {
 
     
     var tweet: Tweet? = nil
@@ -24,7 +24,6 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate, UISp
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         searchText = "#roosterteeth"
-        splitViewController?.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
