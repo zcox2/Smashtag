@@ -126,14 +126,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
-        if primaryViewController.contentViewController == self {
-            if let detailTweetVC = secondaryViewController.contentViewController as? DetailTweetTableViewController where detailTweetVC.linksList.count == 0 {
-                return true
-            }
-        }
-        return false
-    }
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
