@@ -105,7 +105,7 @@
                     </refreshControl>
                     <connections>
                         <outlet property="searchTextField" destination="Enh-45-Y8s" id="c8N-bu-Mhm"/>
-                        <segue destination="9rO-f3-S58" kind="showDetail" identifier="showTweetDetail" id="UtR-rV-V8O"/>
+                        <segue destination="9rO-f3-S58" kind="presentation" identifier="showTweetDetail" modalPresentationStyle="currentContext" id="UtR-rV-V8O"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P2V-1Z-7ht" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -150,10 +150,10 @@
             </objects>
             <point key="canvasLocation" x="2104" y="1115"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--tweetsViewController-->
         <scene sceneID="MmL-3E-hMq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cV9-qr-iHe" sceneMemberID="viewController">
+                <navigationController title="tweetsViewController" automaticallyAdjustsScrollViewInsets="NO" id="cV9-qr-iHe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ycy-6s-Cg1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -168,11 +168,10 @@
             </objects>
             <point key="canvasLocation" x="480" y="304"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--detailViewController-->
         <scene sceneID="Hgm-ly-qtt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ybr-XW-8PB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9rO-f3-S58" sceneMemberID="viewController">
+                <navigationController title="detailViewController" automaticallyAdjustsScrollViewInsets="NO" id="9rO-f3-S58" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TD2-bs-XgM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -183,6 +182,7 @@
                         <segue destination="eD4-6F-L6t" kind="relationship" relationship="rootViewController" id="Z9E-Rn-oIA"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ybr-XW-8PB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1292" y="1115"/>
         </scene>

@@ -26,6 +26,10 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         searchText = "#roosterteeth"
     }
     
+    override func viewWillAppear(animated: Bool) {
+        navigationItem.title = "tweets"
+    }
+
     func refresh(sender: UIRefreshControl) {
         searchForTweets()
         self.refreshControl?.endRefreshing()
