@@ -133,7 +133,7 @@ class DetailTweetTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         switch (indexPath.section) {
-        case 0: break
+        case 0: performSegueWithIdentifier("detailToImage", sender: linksList.mediaList[indexPath.row])
         case 1: break
         case 2: break
         case 3:
