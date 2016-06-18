@@ -14,7 +14,7 @@ class DetailTweetTableViewController: UITableViewController {
     var tweet: Tweet? {
         didSet {
             specialMentions.removeAll()
-            if let hashtags = tweet?.hashtags where hashtags.count != 0 {
+            if let hashtags = tweet?.hashtags {
                 specialMentions.append(hashtags)
             }
             if let userMentions = tweet?.userMentions {
@@ -27,9 +27,13 @@ class DetailTweetTableViewController: UITableViewController {
             print(tweet?.user ?? nil)
         }
     }
-
-    var specialMentions = [Array<Tweet.IndexedKeyword>]()
     
+    var links = [AnyObject]()
+    
+    typealias MentionList = [Tweet.IndexedKeyword]
+    
+    
+    var specialMentions = [MentionList]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
