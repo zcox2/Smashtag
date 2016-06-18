@@ -31,6 +31,10 @@ class DetailTweetTableViewController: UITableViewController {
         }
     }
     
+    struct links {
+        var mediaList = [MediaItem]()
+    }
+    
     var linksList = [Any]()
     
     typealias MediaList = [MediaItem]
