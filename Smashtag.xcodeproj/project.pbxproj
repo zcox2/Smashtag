@@ -73,10 +73,9 @@
 				EAD8C7981D13243500D2D23C /* Twitter */,
 				EA36E63F1D12E4800048DBD0 /* Supporting Files */,
 				EA36E6311D12E3EB0048DBD0 /* Main.storyboard */,
-				EA362D081D160CDB00DFCE50 /* LinkedImageViewController.swift */,
-				EAD04F7F1D158D4C0032506D /* LinkedImageTableViewCell.swift */,
+				EADE29EA1D16D63900CCBE6A /* Cells */,
 				EAD8C79D1D14605B00D2D23C /* DetailTweetTableViewController.swift */,
-				EAD8C7991D1333CF00D2D23C /* TweetTableViewCell.swift */,
+				EA362D081D160CDB00DFCE50 /* LinkedImageViewController.swift */,
 				EA36E6401D12E4C60048DBD0 /* TweetTableViewController.swift */,
 			);
 			path = Smashtag;
@@ -102,6 +101,15 @@
 				EAD8C7931D13234800D2D23C /* User.swift */,
 			);
 			name = Twitter;
+			sourceTree = "<group>";
+		};
+		EADE29EA1D16D63900CCBE6A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EAD04F7F1D158D4C0032506D /* LinkedImageTableViewCell.swift */,
+				EAD8C7991D1333CF00D2D23C /* TweetTableViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

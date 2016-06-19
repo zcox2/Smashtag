@@ -18,12 +18,11 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         
         super.viewDidLoad()
         
-        //refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl?.addTarget(self, action: #selector(TweetTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-        searchText = "#spreadsomelove"
+        
     }
     
     override func viewWillAppear(animated: Bool) {

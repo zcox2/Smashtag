@@ -21,7 +21,7 @@ class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
         didSet {
             scrollView.contentSize = linkedImageView.frame.size
             scrollView.delegate = self
-            scrollView.minimumZoomScale = 0.05
+            scrollView.minimumZoomScale = 0.2
             scrollView.maximumZoomScale = 1.0
         }
     }

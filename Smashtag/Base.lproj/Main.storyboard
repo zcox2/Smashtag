@@ -146,15 +146,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Hx-Ho-wIJ">
-                                            <rect key="frame" x="125" y="0.0" width="350" height="179"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="350" id="Skj-nf-rV9"/>
-                                            </constraints>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="179"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="9Hx-Ho-wIJ" firstAttribute="centerX" secondItem="Z5g-zm-SPu" secondAttribute="centerX" id="88K-RY-syl"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="9Hx-Ho-wIJ" secondAttribute="trailing" constant="-8" id="Kp9-zw-fgp"/>
                                         <constraint firstItem="9Hx-Ho-wIJ" firstAttribute="top" secondItem="Z5g-zm-SPu" secondAttribute="top" id="NLF-RD-5IW"/>
+                                        <constraint firstItem="9Hx-Ho-wIJ" firstAttribute="leading" secondItem="Z5g-zm-SPu" secondAttribute="leadingMargin" constant="-8" id="VDJ-Ui-vlb"/>
                                         <constraint firstAttribute="bottom" secondItem="9Hx-Ho-wIJ" secondAttribute="bottom" id="pRq-b1-V5H"/>
                                     </constraints>
                                 </tableViewCellContentView>
