@@ -23,6 +23,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
+        searchText = "#spreadsomelove"
     }
     
     override func viewWillAppear(animated: Bool) {

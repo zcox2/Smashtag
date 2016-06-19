@@ -183,39 +183,30 @@
             <objects>
                 <viewController id="8nT-lm-5Ag" customClass="LinkedImageViewController" customModule="Smashtag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YNH-OO-ui2"/>
-                        <viewControllerLayoutGuide type="bottom" id="qhM-Pd-H4S"/>
+                        <viewControllerLayoutGuide type="top" id="fxF-Nk-MlK"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cfd-x7-Vzi"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleAspectFill" id="cf5-uL-w7P">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleAspectFill" id="khs-id-DQK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hho-Fq-v41">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t6k-fG-8qe"/>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="t6k-fG-8qe" secondAttribute="bottom" id="8xj-Sj-YOh"/>
-                                    <constraint firstItem="t6k-fG-8qe" firstAttribute="leading" secondItem="Hho-Fq-v41" secondAttribute="leading" id="BHG-lB-dNa"/>
-                                    <constraint firstAttribute="trailing" secondItem="t6k-fG-8qe" secondAttribute="trailing" id="mvn-we-fT8"/>
-                                    <constraint firstItem="t6k-fG-8qe" firstAttribute="top" secondItem="Hho-Fq-v41" secondAttribute="top" id="tzN-Zp-8xM"/>
-                                </constraints>
-                                <edgeInsets key="layoutMargins" top="7" left="8" bottom="8" right="8"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvo-C7-qjf">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <outlet property="delegate" destination="8nT-lm-5Ag" id="biN-Zf-HeK"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qhM-Pd-H4S" firstAttribute="top" secondItem="Hho-Fq-v41" secondAttribute="bottom" id="F5W-e1-QGb"/>
-                            <constraint firstItem="Hho-Fq-v41" firstAttribute="top" secondItem="YNH-OO-ui2" secondAttribute="bottom" id="hHS-mb-WBH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Hho-Fq-v41" secondAttribute="trailing" constant="-20" id="rdh-UZ-s7q"/>
-                            <constraint firstItem="Hho-Fq-v41" firstAttribute="leading" secondItem="cf5-uL-w7P" secondAttribute="leadingMargin" constant="-20" id="utZ-cP-bEw"/>
+                            <constraint firstItem="qvo-C7-qjf" firstAttribute="top" secondItem="khs-id-DQK" secondAttribute="top" id="UD7-Cd-7cC"/>
+                            <constraint firstAttribute="trailing" secondItem="qvo-C7-qjf" secondAttribute="trailing" id="kov-hk-Pao"/>
+                            <constraint firstItem="qvo-C7-qjf" firstAttribute="bottom" secondItem="Cfd-x7-Vzi" secondAttribute="top" id="n1z-S2-178"/>
+                            <constraint firstItem="qvo-C7-qjf" firstAttribute="leading" secondItem="khs-id-DQK" secondAttribute="leading" id="wXi-Z3-g9V"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="detailImageView" destination="cf5-uL-w7P" id="L9V-GB-4YU"/>
-                        <outlet property="linkedImageView" destination="t6k-fG-8qe" id="uBa-IK-Ebr"/>
-                        <outlet property="scrollView" destination="Hho-Fq-v41" id="rhB-D7-1fq"/>
+                        <outlet property="scrollView" destination="qvo-C7-qjf" id="z2L-Pd-xpC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FmW-85-NXx" userLabel="First Responder" sceneMemberID="firstResponder"/>

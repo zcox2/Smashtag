@@ -12,7 +12,7 @@ class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
 
     var imageURL: NSURL? {
         didSet {
-            linkedImageView = nil
+            image = nil
             fetchImage()
         }
     }
@@ -21,11 +21,12 @@ class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
         didSet {
             scrollView.contentSize = linkedImageView.frame.size
             scrollView.delegate = self
-            scrollView.minimumZoomScale = 0.5
-            scrollView.maximumZoomScale = 1.5
+            scrollView.minimumZoomScale = 0.05
+            scrollView.maximumZoomScale = 1.0
         }
     }
     private func fetchImage() {
+        print("image fetching")
         weak var weakSelf = self
         if let url = imageURL {
                 dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
@@ -37,18 +38,24 @@ class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
             }
             
         }
+        print("image fetched")
+
+        
     }
-    @IBOutlet var detailImageView: UIView!
     
-    @IBOutlet weak var linkedImageView: UIImageView!
+    private var linkedImageView = UIImageView()
     
     var image: UIImage? {
         get {
             return linkedImageView.image
         } set {
+            print("Image set")
             linkedImageView.image = newValue
+            
             linkedImageView.sizeToFit()
+            
             scrollView?.contentSize = linkedImageView.frame.size
+            print("image formatted")
         }
     }
     
@@ -59,21 +66,23 @@ class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        linkedImageView.clipsToBounds = true
+        linkedImageView.contentMode = UIViewContentMode.ScaleAspectFill
+
         scrollView.addSubview(linkedImageView)
 
-        linkedImageView.contentMode = UIViewContentMode.Center
-        linkedImageView.sizeToFit()
-        scrollView?.contentSize = linkedImageView.frame.size
+       
+        print("view did load")
+        
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if linkedImageView == nil {
+        if image == nil {
             fetchImage()
-            linkedImageView.contentMode = UIViewContentMode.ScaleAspectFill
-            linkedImageView.sizeToFit()
-            scrollView?.contentSize = linkedImageView.frame.size
         }
+        print("view will appear")
+        
     }
     
     /*
