@@ -17,7 +17,7 @@ class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    @IBOutlet weak var scrollView: UIScrollView! {
+    @IBOutlet private weak var scrollView: UIScrollView! {
         didSet {
             scrollView.contentSize = linkedImageView.frame.size
             scrollView.delegate = self
@@ -45,7 +45,7 @@ class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
     
     private var linkedImageView = UIImageView()
     
-    var image: UIImage? {
+    private var image: UIImage? {
         get {
             return linkedImageView.image
         } set {

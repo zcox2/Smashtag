@@ -12,7 +12,7 @@ import Twitter
 class TweetTableViewController: UITableViewController, UITextFieldDelegate {
 
     
-    var tweet: Tweet? = nil
+    private var tweet: Tweet? = nil
     
     override func viewDidLoad() {
         
@@ -34,7 +34,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         self.refreshControl?.endRefreshing()
     }
     
-    var tweets = [Array<Tweet>]() {
+    private var tweets = [Array<Tweet>]() {
         didSet {
             tableView.reloadData()
         }

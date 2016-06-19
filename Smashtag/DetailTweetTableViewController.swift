@@ -10,7 +10,7 @@ import UIKit
 
 class DetailTweetTableViewController: UITableViewController {
     
-    var linksList = Links()
+    private var linksList = Links()
     
     var tweet: Tweet? {
         didSet {
@@ -22,14 +22,14 @@ class DetailTweetTableViewController: UITableViewController {
         }
     }
     
-    struct Links {
+    private struct Links {
         var mediaList = [MediaItem]()
         var hashtags: MentionList = []
         var userMentions: MentionList = []
         var urls: MentionList = []
     }
     
-    func removeAllLinksFrom(listOfLinks: Links) -> Links{
+    private func removeAllLinksFrom(listOfLinks: Links) -> Links{
         var links = listOfLinks
         links.mediaList.removeAll()
         links.hashtags.removeAll()
@@ -38,8 +38,8 @@ class DetailTweetTableViewController: UITableViewController {
         return links
     }
     
-    typealias MediaList = [MediaItem]
-    typealias MentionList = [Tweet.IndexedKeyword]
+    private typealias MediaList = [MediaItem]
+    private typealias MentionList = [Tweet.IndexedKeyword]
     
     override func viewDidLoad() {
         super.viewDidLoad()
