@@ -169,10 +169,59 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="wgZ-cR-5dB"/>
+                    <connections>
+                        <segue destination="8nT-lm-5Ag" kind="show" identifier="transitionToLinkedImage" id="ho2-kQ-dk3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0c7-sH-fYc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1986" y="304"/>
+        </scene>
+        <!--Linked Image View Controller-->
+        <scene sceneID="ZMY-s0-5IT">
+            <objects>
+                <viewController id="8nT-lm-5Ag" customClass="LinkedImageViewController" customModule="Smashtag" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YNH-OO-ui2"/>
+                        <viewControllerLayoutGuide type="bottom" id="qhM-Pd-H4S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cf5-uL-w7P">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yPa-ar-sLv">
+                                <rect key="frame" x="0.0" y="72" width="600" height="528"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QfJ-cs-ICa"/>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="QfJ-cs-ICa" firstAttribute="leading" secondItem="yPa-ar-sLv" secondAttribute="leading" id="Tgp-Qj-t2f"/>
+                                    <constraint firstAttribute="trailing" secondItem="QfJ-cs-ICa" secondAttribute="trailing" constant="166" id="XcY-b4-Z5T"/>
+                                    <constraint firstAttribute="bottom" secondItem="QfJ-cs-ICa" secondAttribute="bottom" constant="144" id="jui-NF-F2I"/>
+                                    <constraint firstItem="QfJ-cs-ICa" firstAttribute="top" secondItem="yPa-ar-sLv" secondAttribute="top" id="m4g-Xj-SaF"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="8nT-lm-5Ag" id="BgS-1E-spO"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yPa-ar-sLv" firstAttribute="leading" secondItem="cf5-uL-w7P" secondAttribute="leading" id="3oU-LZ-Qya"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yPa-ar-sLv" secondAttribute="trailing" constant="-20" id="RiC-w0-c6y"/>
+                            <constraint firstItem="yPa-ar-sLv" firstAttribute="top" secondItem="YNH-OO-ui2" secondAttribute="bottom" constant="8" symbolic="YES" id="aEL-LO-VUx"/>
+                            <constraint firstItem="qhM-Pd-H4S" firstAttribute="top" secondItem="yPa-ar-sLv" secondAttribute="bottom" id="sCm-J9-a7b"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailImageView" destination="cf5-uL-w7P" id="L9V-GB-4YU"/>
+                        <outlet property="linkedImageView" destination="QfJ-cs-ICa" id="7eQ-y8-ITe"/>
+                        <outlet property="scrollView" destination="yPa-ar-sLv" id="XP0-QE-WPa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FmW-85-NXx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2703" y="304"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MmL-3E-hMq">

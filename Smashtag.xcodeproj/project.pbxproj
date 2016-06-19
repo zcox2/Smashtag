@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA362D091D160CDB00DFCE50 /* LinkedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA362D081D160CDB00DFCE50 /* LinkedImageViewController.swift */; };
 		EA36E62E1D12E3EA0048DBD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA36E62D1D12E3EA0048DBD0 /* AppDelegate.swift */; };
 		EA36E6331D12E3EB0048DBD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA36E6311D12E3EB0048DBD0 /* Main.storyboard */; };
 		EA36E6351D12E3EB0048DBD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA36E6341D12E3EB0048DBD0 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA362D081D160CDB00DFCE50 /* LinkedImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedImageViewController.swift; sourceTree = "<group>"; };
 		EA36E62A1D12E3EA0048DBD0 /* Smashtag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smashtag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA36E62D1D12E3EA0048DBD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA36E6321D12E3EB0048DBD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				EAD8C7981D13243500D2D23C /* Twitter */,
 				EA36E63F1D12E4800048DBD0 /* Supporting Files */,
 				EA36E6311D12E3EB0048DBD0 /* Main.storyboard */,
+				EA362D081D160CDB00DFCE50 /* LinkedImageViewController.swift */,
 				EAD04F7F1D158D4C0032506D /* LinkedImageTableViewCell.swift */,
 				EAD8C79D1D14605B00D2D23C /* DetailTweetTableViewController.swift */,
 				EAD8C7991D1333CF00D2D23C /* TweetTableViewCell.swift */,
@@ -176,6 +179,7 @@
 				EA36E62E1D12E3EA0048DBD0 /* AppDelegate.swift in Sources */,
 				EAD04F801D158D4C0032506D /* LinkedImageTableViewCell.swift in Sources */,
 				EAD8C7961D13234800D2D23C /* TwitterRequest.swift in Sources */,
+				EA362D091D160CDB00DFCE50 /* LinkedImageViewController.swift in Sources */,
 				EAD8C7971D13234800D2D23C /* User.swift in Sources */,
 				EA36E6411D12E4C60048DBD0 /* TweetTableViewController.swift in Sources */,
 				EAD8C7941D13234800D2D23C /* MediaItem.swift in Sources */,

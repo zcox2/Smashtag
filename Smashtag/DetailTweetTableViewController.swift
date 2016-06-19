@@ -133,7 +133,7 @@ class DetailTweetTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         switch (indexPath.section) {
-        case 0: performSegueWithIdentifier("detailToImage", sender: linksList.mediaList[indexPath.row])
+        case 0: performSegueWithIdentifier("transitionToLinkedImage", sender: linksList.mediaList[indexPath.row].url)
         case 1: break
         case 2: break
         case 3:
@@ -160,14 +160,24 @@ class DetailTweetTableViewController: UITableViewController {
      }
      */
     
-    /*
+
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "transitionToLinkedImage" {
+            if let linkedImageVC = segue.destinationViewController as? LinkedImageViewController {
+                if let url = sender as? NSURL {
+                    linkedImageVC.imageURL = url
+                }
+            }
+        }
+       
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
+        
+        
      }
-     */
+
     
 }
