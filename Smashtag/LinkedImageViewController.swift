@@ -22,7 +22,7 @@ class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
             scrollView.contentSize = linkedImageView.frame.size
             scrollView.delegate = self
             scrollView.minimumZoomScale = 0.5
-            scrollView.maximumZoomScale = 1
+            scrollView.maximumZoomScale = 1.5
         }
     }
     private func fetchImage() {
@@ -60,12 +60,19 @@ class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.addSubview(linkedImageView)
+
+        linkedImageView.contentMode = UIViewContentMode.Center
+        linkedImageView.sizeToFit()
+        scrollView?.contentSize = linkedImageView.frame.size
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if linkedImageView == nil {
             fetchImage()
+            linkedImageView.contentMode = UIViewContentMode.ScaleAspectFill
+            linkedImageView.sizeToFit()
+            scrollView?.contentSize = linkedImageView.frame.size
         }
     }
     

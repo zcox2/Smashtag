@@ -134,8 +134,8 @@ class DetailTweetTableViewController: UITableViewController {
         
         switch (indexPath.section) {
         case 0: performSegueWithIdentifier("transitionToLinkedImage", sender: linksList.mediaList[indexPath.row].url)
-        case 1: break
-        case 2: break
+        case 1: performSegueWithIdentifier("searchWithTag", sender: linksList.hashtags[indexPath.row].keyword)
+        case 2: performSegueWithIdentifier("searchWithTag", sender: linksList.userMentions[indexPath.row].keyword)
         case 3:
             if let url = NSURL(string:linksList.urls[indexPath.row].keyword) {
                 UIApplication.sharedApplication().openURL(url)
@@ -169,6 +169,13 @@ class DetailTweetTableViewController: UITableViewController {
             if let linkedImageVC = segue.destinationViewController as? LinkedImageViewController {
                 if let url = sender as? NSURL {
                     linkedImageVC.imageURL = url
+                }
+            }
+        }
+        if segue.identifier == "searchWithTag" {
+            if let tweetTableVC = segue.destinationViewController as? TweetTableViewController {
+                if let keyword = sender as? String {
+                    tweetTableVC.searchText = keyword
                 }
             }
         }
