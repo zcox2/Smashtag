@@ -9,90 +9,105 @@
 import UIKit
 
 class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
-
+    
+//    weak var imageViewBottomConstraint: NSLayoutConstraint!
+//    weak var imageViewTrailingConstraint: NSLayoutConstraint!
+//    weak var imageViewLeadingConstraint: NSLayoutConstraint!
+//    weak var imageViewTopConstraint: NSLayoutConstraint!
+//    
     var imageURL: NSURL? {
         didSet {
-            image = nil
-            fetchImage()
+            if image == nil {
+                fetchImage()
+            }
         }
     }
     
     @IBOutlet private weak var scrollView: UIScrollView! {
         didSet {
-            scrollView.contentSize = linkedImageView.frame.size
+            scrollView.contentSize = imageView.frame.size
             scrollView.delegate = self
-            scrollView.minimumZoomScale = 0.2
-            scrollView.maximumZoomScale = 1.0
+            
+            scrollView.minimumZoomScale = 0.5
+            scrollView.maximumZoomScale = 1.5
         }
     }
     private func fetchImage() {
         print("image fetching")
-        weak var weakSelf = self
+        //weak var weakSelf = self
         if let url = imageURL {
-                dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
-                    if let imageData = NSData(contentsOfURL: url) {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            weakSelf?.image = UIImage(data: imageData)
-                        }
+            dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+                if let imageData = NSData(contentsOfURL: url) {
+                    print("image fetched off main queue")
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.image = UIImage(data: imageData)
+                        print("image assigned to self.image on main queue")
                     }
+
+                }
             }
             
         }
-        print("image fetched")
-
-        
     }
     
-    private var linkedImageView = UIImageView()
+    @IBOutlet weak var imageView: UIImageView!
+    
+    // private var linkedImageView = UIImageView()
     
     private var image: UIImage? {
         get {
-            return linkedImageView.image
+            return imageView?.image
         } set {
-            print("Image set")
-            linkedImageView.image = newValue
-            
-            linkedImageView.sizeToFit()
-            
-            scrollView?.contentSize = linkedImageView.frame.size
-            print("image formatted")
+            if imageView != nil { print("Image set") }
+            imageView?.image = newValue
         }
     }
     
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         
-        return linkedImageView
+        return imageView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        linkedImageView.clipsToBounds = true
-        linkedImageView.contentMode = UIViewContentMode.ScaleAspectFill
-
-        scrollView.addSubview(linkedImageView)
-
-       
+        
+        scrollView.delegate = self
         print("view did load")
         
     }
 
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewDidAppear(animated)
         if image == nil {
             fetchImage()
         }
-        print("view will appear")
-        
+        print("view did appear")
+
+    }
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+       
     }
     
-    /*
-    // MARK: - Navigation
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+        //        imageView.clipsToBounds = true
+        imageView.sizeToFit()
+        scrollView.addSubview(imageView)
+        scrollView.sizeToFit()
+        //scrollView.contentSize = imageView.frame.size
+        if scrollView != nil { print("image formatted") }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
-
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

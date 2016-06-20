@@ -168,6 +168,7 @@ class DetailTweetTableViewController: UITableViewController {
         if segue.identifier == "transitionToLinkedImage" {
             if let linkedImageVC = segue.destinationViewController as? LinkedImageViewController {
                 if let url = sender as? NSURL {
+                    print("Sent url to linkedimageVC")
                     linkedImageVC.imageURL = url
                 }
             }

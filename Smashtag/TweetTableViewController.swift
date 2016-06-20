@@ -148,8 +148,6 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
             }
         }
     }
-    
-
 }
 
 extension UIViewController {
