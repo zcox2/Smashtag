@@ -15,6 +15,10 @@ class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
 //    weak var imageViewLeadingConstraint: NSLayoutConstraint!
 //    weak var imageViewTopConstraint: NSLayoutConstraint!
 //    
+    
+    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
+    
+    
     var imageURL: NSURL? {
         didSet {
             if image == nil {
@@ -28,8 +32,8 @@ class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
             scrollView.contentSize = imageView.frame.size
             scrollView.delegate = self
             
-            scrollView.minimumZoomScale = 0.5
-            scrollView.maximumZoomScale = 1.5
+            scrollView.minimumZoomScale = 1
+            scrollView.maximumZoomScale = 2
         }
     }
     private func fetchImage() {
@@ -76,14 +80,16 @@ class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
         
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if image == nil {
             fetchImage()
         }
         print("view did appear")
-
+        scrollView.contentSize = imageView.frame.size
     }
+    
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
        
@@ -92,14 +98,19 @@ class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
-        //        imageView.clipsToBounds = true
+        imageView.clipsToBounds = true
         imageView.sizeToFit()
+
         scrollView.addSubview(imageView)
-        scrollView.sizeToFit()
-        //scrollView.contentSize = imageView.frame.size
+        scrollView.contentSize = imageView.frame.size
         if scrollView != nil { print("image formatted") }
+    }
+    
+    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
+        scrollView.contentSize = imageView.frame.size
 
     }
+    
     /*
      // MARK: - Navigation
      

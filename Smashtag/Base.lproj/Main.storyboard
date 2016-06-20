@@ -15,14 +15,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textField key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Twitter Search Text" textAlignment="natural" minimumFontSize="17" id="Enh-45-Y8s">
-                            <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Tweet" rowHeight="146" id="uVv-YO-Av3" customClass="TweetTableViewCell" customModule="Smashtag" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="122" width="600" height="146"/>
+                                <rect key="frame" x="0.0" y="58" width="600" height="146"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uVv-YO-Av3" id="8w9-Dw-Znv">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="145"/>
@@ -122,7 +122,7 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="specialMention" textLabel="Qhd-uH-Bhr" style="IBUITableViewCellStyleDefault" id="KJ8-Vi-beW">
-                                <rect key="frame" x="0.0" y="114" width="600" height="65"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="KJ8-Vi-beW" id="owA-dn-6i4">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
@@ -139,13 +139,13 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="180" id="D8Q-Ak-mTs" customClass="LinkedImageTableViewCell" customModule="Smashtag" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="179" width="600" height="180"/>
+                                <rect key="frame" x="0.0" y="115" width="600" height="180"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D8Q-Ak-mTs" id="Z5g-zm-SPu">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="179"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Hx-Ho-wIJ">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Hx-Ho-wIJ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="179"/>
                                         </imageView>
                                     </subviews>
@@ -189,20 +189,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvo-C7-qjf">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="qvo-C7-qjf">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9wb-9u-OUw">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9wb-9u-OUw">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <color key="backgroundColor" red="0.62473958333333335" green="0.24358836925823846" blue="0.23193449535507618" alpha="1" colorSpace="calibratedRGB"/>
                                     </imageView>
                                 </subviews>
+                                <color key="backgroundColor" red="0.32986778846153841" green="0.32986778846153841" blue="0.32986778846153841" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="9wb-9u-OUw" firstAttribute="leading" secondItem="qvo-C7-qjf" secondAttribute="leading" id="75F-K0-hYq"/>
                                     <constraint firstAttribute="trailing" secondItem="9wb-9u-OUw" secondAttribute="trailing" id="HNA-ql-ggJ"/>
                                     <constraint firstItem="9wb-9u-OUw" firstAttribute="top" secondItem="qvo-C7-qjf" secondAttribute="top" id="Q8F-RQ-iDp"/>
                                     <constraint firstItem="9wb-9u-OUw" firstAttribute="centerX" secondItem="qvo-C7-qjf" secondAttribute="centerX" id="T6s-Jl-54Z"/>
-                                    <constraint firstItem="9wb-9u-OUw" firstAttribute="height" secondItem="qvo-C7-qjf" secondAttribute="height" id="bfX-3m-KTV"/>
                                     <constraint firstAttribute="bottom" secondItem="9wb-9u-OUw" secondAttribute="bottom" id="bmg-dw-VMg"/>
+                                    <constraint firstItem="9wb-9u-OUw" firstAttribute="height" secondItem="qvo-C7-qjf" secondAttribute="height" id="d4q-2u-Hmb"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="8nT-lm-5Ag" id="biN-Zf-HeK"/>
@@ -246,6 +248,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UG0-oL-PBd"/>
+        <segue reference="Nnh-83-Zei"/>
     </inferredMetricsTieBreakers>
 </document>
