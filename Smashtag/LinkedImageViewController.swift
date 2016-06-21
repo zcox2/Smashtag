@@ -30,21 +30,19 @@ class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet private weak var scrollView: UIScrollView! {
         didSet {
             scrollView.contentSize = imageView.frame.size
-            scrollView.delegate = self
-            
             scrollView.minimumZoomScale = 1
             scrollView.maximumZoomScale = 2
         }
     }
     private func fetchImage() {
         print("image fetching")
-        //weak var weakSelf = self
+        weak var weakSelf = self
         if let url = imageURL {
             dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
                 if let imageData = NSData(contentsOfURL: url) {
                     print("image fetched off main queue")
                     dispatch_async(dispatch_get_main_queue()) {
-                        self.image = UIImage(data: imageData)
+                        weakSelf?.image = UIImage(data: imageData)
                         print("image assigned to self.image on main queue")
                     }
 
@@ -74,8 +72,8 @@ class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         scrollView.delegate = self
+        
         print("view did load")
         
     }
@@ -85,21 +83,13 @@ class LinkedImageViewController: UIViewController, UIScrollViewDelegate {
         if image == nil {
             fetchImage()
         }
+        
         print("view did appear")
-        scrollView.contentSize = imageView.frame.size
-    }
-    
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-       
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         imageView.contentMode = UIViewContentMode.ScaleAspectFit
-        imageView.clipsToBounds = true
-        imageView.sizeToFit()
 
         scrollView.addSubview(imageView)
         scrollView.contentSize = imageView.frame.size
