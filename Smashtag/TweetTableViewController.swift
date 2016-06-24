@@ -12,6 +12,14 @@ import Twitter
 class TweetTableViewController: UITableViewController, UITextFieldDelegate {
 
     
+    private var searches = [String]() {
+        didSet {
+            if searches.count > 10 {
+                searches.removeFirst()
+            }
+        }
+    }
+    
     private var tweet: Tweet? = nil
     
     override func viewDidLoad() {
@@ -21,9 +29,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         self.refreshControl?.addTarget(self, action: #selector(TweetTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         tableView.estimatedRowHeight = tableView.rowHeight
-        tableView.rowHeight = UITableViewAutomaticDimension
-        searchText = "Yosemite"
-        
+        tableView.rowHeight = UITableViewAutomaticDimension        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -45,6 +51,9 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         didSet {
             tweets.removeAll()
             searchForTweets()
+            if searchText != nil {
+                searches.append(searchText!)
+            }
             title = searchText
         }
     }

@@ -13,6 +13,8 @@
 		EA36E6351D12E3EB0048DBD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA36E6341D12E3EB0048DBD0 /* Assets.xcassets */; };
 		EA36E6381D12E3EB0048DBD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA36E6361D12E3EB0048DBD0 /* LaunchScreen.storyboard */; };
 		EA36E6411D12E4C60048DBD0 /* TweetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA36E6401D12E4C60048DBD0 /* TweetTableViewController.swift */; };
+		EA541FAC1D1DAA8200A41CF0 /* SearchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA541FAB1D1DAA8200A41CF0 /* SearchesTableViewController.swift */; };
+		EA541FAE1D1DAABE00A41CF0 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA541FAD1D1DAABE00A41CF0 /* SearchTableViewCell.swift */; };
 		EAD04F801D158D4C0032506D /* LinkedImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD04F7F1D158D4C0032506D /* LinkedImageTableViewCell.swift */; };
 		EAD8C7941D13234800D2D23C /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD8C7901D13234800D2D23C /* MediaItem.swift */; };
 		EAD8C7951D13234800D2D23C /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD8C7911D13234800D2D23C /* Tweet.swift */; };
@@ -31,6 +33,8 @@
 		EA36E6371D12E3EB0048DBD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA36E6391D12E3EB0048DBD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA36E6401D12E4C60048DBD0 /* TweetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewController.swift; sourceTree = "<group>"; };
+		EA541FAB1D1DAA8200A41CF0 /* SearchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchesTableViewController.swift; sourceTree = "<group>"; };
+		EA541FAD1D1DAABE00A41CF0 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		EAD04F7F1D158D4C0032506D /* LinkedImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedImageTableViewCell.swift; sourceTree = "<group>"; };
 		EAD8C7901D13234800D2D23C /* MediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaItem.swift; path = "../../../Downloads/Stanford-iOS-Course-2015-CS193p-Smashtag-Swift-2-master/MediaItem.swift"; sourceTree = "<group>"; };
 		EAD8C7911D13234800D2D23C /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tweet.swift; path = "../../../Downloads/Stanford-iOS-Course-2015-CS193p-Smashtag-Swift-2-master/Tweet.swift"; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 				EAD8C7981D13243500D2D23C /* Twitter */,
 				EA36E63F1D12E4800048DBD0 /* Supporting Files */,
 				EA36E6311D12E3EB0048DBD0 /* Main.storyboard */,
+				EA541FAD1D1DAABE00A41CF0 /* SearchTableViewCell.swift */,
+				EA541FAB1D1DAA8200A41CF0 /* SearchesTableViewController.swift */,
 				EADE29EA1D16D63900CCBE6A /* Cells */,
 				EAD8C79D1D14605B00D2D23C /* DetailTweetTableViewController.swift */,
 				EA362D081D160CDB00DFCE50 /* LinkedImageViewController.swift */,
@@ -189,9 +195,11 @@
 				EAD8C7961D13234800D2D23C /* TwitterRequest.swift in Sources */,
 				EA362D091D160CDB00DFCE50 /* LinkedImageViewController.swift in Sources */,
 				EAD8C7971D13234800D2D23C /* User.swift in Sources */,
+				EA541FAC1D1DAA8200A41CF0 /* SearchesTableViewController.swift in Sources */,
 				EA36E6411D12E4C60048DBD0 /* TweetTableViewController.swift in Sources */,
 				EAD8C7941D13234800D2D23C /* MediaItem.swift in Sources */,
 				EAD8C7951D13234800D2D23C /* Tweet.swift in Sources */,
+				EA541FAE1D1DAABE00A41CF0 /* SearchTableViewCell.swift in Sources */,
 				EAD8C79A1D1333CF00D2D23C /* TweetTableViewCell.swift in Sources */,
 				EAD8C79E1D14605B00D2D23C /* DetailTweetTableViewController.swift in Sources */,
 			);
