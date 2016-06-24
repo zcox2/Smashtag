@@ -10,7 +10,7 @@ import UIKit
 import Twitter
 
 class TweetTableViewController: UITableViewController, UITextFieldDelegate {
-
+    
     let defaults = NSUserDefaults.standardUserDefaults()
     let searchTableVC = SearchesTableViewController()
     
@@ -27,28 +27,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
             defaults.setObject(newValue, forKey: "Searches")
         }
     }
-    
-//    private var searches = [String]() {
-//        willSet {
-//            if searches.isEmpty {
-//                if let searchesObject = defaults.arrayForKey("Searches") {
-//                    if let searchArray = searchesObject as? Array<String> {
-//                        searches = searchArray
-//                    }
-//                }
-//            }
-//        }
-//        didSet {
-//            if searches.count > 10 {
-//                searches.removeFirst()
-//            }
-//            if !searches.isEmpty {
-//                defaults.setObject(searches, forKey: "Searches")
-//            }
-//        }
-//    }
-//    
-    
+
     
     private var tweet: Tweet? = nil
     
@@ -65,7 +44,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     override func viewWillAppear(animated: Bool) {
         navigationItem.title = "tweets"
     }
-
+    
     func refresh(sender: UIRefreshControl) {
         searchForTweets()
         self.refreshControl?.endRefreshing()
@@ -76,7 +55,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
             tableView.reloadData()
         }
     }
-
+    
     var searchText: String? {
         didSet {
             tweets.removeAll()
@@ -112,23 +91,23 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
             }
         }
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return tweets.count
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return tweets[section].count
     }
-
+    
     private struct Storyboard {
         static let TweetCellIdentifier = "Tweet"
     }
-
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.TweetCellIdentifier, forIndexPath: indexPath)
@@ -159,13 +138,13 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("showTweetDetail", sender: tweets[indexPath.section][indexPath.row])
     }
-
+    
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     
-
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
@@ -177,7 +156,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         }
         
         
-            //weak var weakSelf = self
+        //weak var weakSelf = self
         if let detailTweetVC = destinationVC as? DetailTweetTableViewController {
             if segue.identifier == "showTweetDetail" {
                 if let selectedTweet = sender as? Tweet {
