@@ -10,9 +10,16 @@ import UIKit
 
 class SearchesTableViewController: UITableViewController {
     var searchTableCounter: Int = 0
-    var searches = [String]()
+ 
+    var searches = [String]() {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    let defaults = NSUserDefaults.standardUserDefaults()
     
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,17 +28,29 @@ class SearchesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        searches.append("Yosemite")
-        searches.append("Mammoth Cave")
-        searches.append("Deviant Art")
-        searches.append("Cosplay Girls")
+        
         searchTableCounter += 1
         print("loaded, we're at \(searchTableCounter) tables")
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        retrieveSearchHistory()
+    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func clearSearches(sender: UIBarButtonItem) {
+        searches.removeAll()
+        defaults.setObject(searches, forKey: "Searches")
+
+    }
+    
+    func retrieveSearchHistory() {
+        if let archivedSearches = defaults.arrayForKey("Searches") as? Array<String>? {
+            if (archivedSearches != nil)  {
+                searches = archivedSearches!
+            }
+        }
     }
 
     // MARK: - Table view data source

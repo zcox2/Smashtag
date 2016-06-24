@@ -11,14 +11,44 @@ import Twitter
 
 class TweetTableViewController: UITableViewController, UITextFieldDelegate {
 
+    let defaults = NSUserDefaults.standardUserDefaults()
+    let searchTableVC = SearchesTableViewController()
     
-    private var searches = [String]() {
-        didSet {
-            if searches.count > 10 {
-                searches.removeFirst()
+    var searches: [String] {
+        get {
+            if let searchArray = defaults.arrayForKey("Searches") as? Array<String>? {
+                if searchArray != nil {
+                    return searchArray!
+                }
             }
+            return []
+        }
+        set {
+            defaults.setObject(newValue, forKey: "Searches")
         }
     }
+    
+//    private var searches = [String]() {
+//        willSet {
+//            if searches.isEmpty {
+//                if let searchesObject = defaults.arrayForKey("Searches") {
+//                    if let searchArray = searchesObject as? Array<String> {
+//                        searches = searchArray
+//                    }
+//                }
+//            }
+//        }
+//        didSet {
+//            if searches.count > 10 {
+//                searches.removeFirst()
+//            }
+//            if !searches.isEmpty {
+//                defaults.setObject(searches, forKey: "Searches")
+//            }
+//        }
+//    }
+//    
+    
     
     private var tweet: Tweet? = nil
     
@@ -29,7 +59,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         self.refreshControl?.addTarget(self, action: #selector(TweetTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         tableView.estimatedRowHeight = tableView.rowHeight
-        tableView.rowHeight = UITableViewAutomaticDimension        
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -52,7 +82,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
             tweets.removeAll()
             searchForTweets()
             if searchText != nil {
-                searches.append(searchText!)
+                searches.insert(searchText!, atIndex: 0)
             }
             title = searchText
         }

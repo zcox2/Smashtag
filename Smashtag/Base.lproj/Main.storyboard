@@ -281,7 +281,13 @@
                             <outlet property="delegate" destination="Mzh-IQ-sfJ" id="mQO-uD-oTt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Past Searches" id="MKM-1S-nQs"/>
+                    <navigationItem key="navigationItem" title="Past Searches" id="MKM-1S-nQs">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="eAl-sQ-dMA">
+                            <connections>
+                                <action selector="clearSearches:" destination="Mzh-IQ-sfJ" id="rF2-9x-OPv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="1k2-qP-w1Z" kind="showDetail" identifier="newSearch" id="OQn-6F-MFZ"/>
                     </connections>
