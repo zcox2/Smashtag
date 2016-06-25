@@ -232,7 +232,7 @@
         <scene sceneID="MmL-3E-hMq">
             <objects>
                 <navigationController title="Twitter" automaticallyAdjustsScrollViewInsets="NO" id="cV9-qr-iHe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="6Lx-7Y-Qqy"/>
+                    <tabBarItem key="tabBarItem" title="Twitter" image="twitterCircle" id="6Lx-7Y-Qqy"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ycy-6s-Cg1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -318,7 +318,7 @@
         <scene sceneID="wIw-ia-lsO">
             <objects>
                 <navigationController title="Searches" automaticallyAdjustsScrollViewInsets="NO" id="VJa-d1-Cid" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Oyb-43-Lwo"/>
+                    <tabBarItem key="tabBarItem" selectedImage="searchIcon" systemItem="history" id="Oyb-43-Lwo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eAV-zc-cMj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -334,6 +334,10 @@
             <point key="canvasLocation" x="566" y="999"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="searchIcon" width="32" height="32"/>
+        <image name="twitterCircle" width="32" height="32"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="UG0-oL-PBd"/>
     </inferredMetricsTieBreakers>
